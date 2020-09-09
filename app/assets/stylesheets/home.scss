@@ -7,3 +7,52 @@ $color: red;
 h1 {
   color: $color
 }
+
+.hoge {
+  height: 50px;
+  width: 1000px;
+  border: lightgrey 2px solid;
+  background-color: lightgreen;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+// .contact-form {
+//   width: 400px;
+// }
+
+.paln_form {
+  position: absolute;
+}
+
+.day_plan {
+  width: 200px;
+  height: 30px;
+  margin-left: 20px;
+  border: 1px solid lightslategray;
+  // display: flex;
+  // position: absolute;
+}
+
+.day_memo {
+  width: 300px;
+  height: 30px;
+  border: 1px solid lightslategray;
+  margin: 10px;
+}
+.start_time {
+  height: 30px;
+}
+
+.end_time {
+  height: 30px;
+}
+
+.plan {
+  height: 200px;
+  width: 600px;
+  border: black 2px solid;
+  margin-top: 30px;
+}
