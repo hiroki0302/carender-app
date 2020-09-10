@@ -1,33 +1,40 @@
-<p id="notice"><%= notice %></p>
+ <h1><パッと見カレンダー></h1>
 
-<h1>Schedules</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Plan</th>
-      <th>Memo</th>
-      <th>Start time</th>
-      <th>End time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @schedules.each do |schedule| %>
-      <tr>
-        <td><%= schedule.plan %></td>
-        <td><%= schedule.memo %></td>
-        <td><%= schedule.start_time %></td>
-        <td><%= schedule.end_time %></td>
-        <td><%= link_to 'Show', schedule %></td>
-        <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
-        <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class ="hoge">
+  <div class="plan-form">
+    <%= form_with(model: @schedule, url: schedules_path, class: "form", local: true) do |form| %>
+      <%= form.text_field :plan, placeholder:"予定を入力してください" %>
+      <%= form.text_field :memo, placeholder:"メモを入力してください" %>
+      <%= form.text_field :start_time, placeholder:"開始日時" %>
+      <%= form.text_field :end_time, placeholder:"終了日時" %>
+      <%= form.submit "save"%>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
-<br>
 
-<%= link_to 'New Schedule', new_schedule_path %>
+<%= month_calendar events: @schedules do |date,schedules| %>
+  <%= date.day %> 
+
+  <% schedules.each do |schedule| %>
+    <div>
+      <%= link_to schedule.plan ,"#",id: @schedule.id %>
+    </div>
+  <% end %>
+
+
+
+<% end %>
+
+<div class ="plan">
+  <% @schedules.each do |schedule| %>
+    <div>
+      <%= schedule.plan %>
+      <%= schedule.memo %>
+      <%= link_to '編集' %>
+      <%= link_to '削除' %>
+    </div>
+  <% end %>
+ </div>
+
+

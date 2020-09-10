@@ -5,6 +5,7 @@ class SchedulesController < ApplicationController
   # GET /schedules.json
   def index
     @schedules = Schedule.all
+    @schedule = Schedule.new
   end
 
   # GET /schedules/1
@@ -25,7 +26,14 @@ class SchedulesController < ApplicationController
   # POST /schedules.json
   def create
 
-      Schedule.create(schedule_params)
+      
+        @schedule = Schedule.new(schedule_params)
+        if @schedule.save
+          redirect_to root_path
+        else
+          @schedules = Schedule.all
+          render :index
+        end
     
   
 
