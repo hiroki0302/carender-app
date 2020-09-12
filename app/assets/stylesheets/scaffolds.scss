@@ -9,7 +9,7 @@ body {
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 18px;
 }
 
@@ -23,7 +23,7 @@ a {
   color: #000;
 
   &:visited {
-    color: #666;
+    color: rgb(72, 164, 221);
   }
 
   &:hover {
@@ -38,6 +38,7 @@ th {
 
 td {
   padding: 0 5px 7px;
+  color: #000;
 }
 
 div {
@@ -85,4 +86,8 @@ div {
 
 label {
   display: block;
+}
+
+.hide {
+  display: none;
 }

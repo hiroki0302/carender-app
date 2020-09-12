@@ -17,8 +17,8 @@
   <%= date.day %> 
 
   <% schedules.each do |schedule| %>
-    <div>
-      <%= link_to schedule.plan ,"#",id: @schedule.id %>
+    <div class="select-schedule" id = <%= schedule.id %>>
+      <%= schedule.plan %>
     </div>
   <% end %>
 
@@ -26,13 +26,16 @@
 
 <% end %>
 
-<div class ="plan">
+<div class ="plan" id="day-plan">
+<h3>~スケジュール詳細~</h3>
   <% @schedules.each do |schedule| %>
-    <div>
+    <div class="hide" id = <%= "schedule-#{schedule.id}"%>>
       <%= schedule.plan %>
       <%= schedule.memo %>
-      <%= link_to '編集' %>
-      <%= link_to '削除' %>
+      <%= schedule.start_time %>
+      <%= schedule.end_time %>
+      <%= link_to '編集', edit_schedule_path(schedule.id) %>
+      <%= link_to '削除', schedule_path(schedule.id), method: :delete %>
     </div>
   <% end %>
  </div>
