@@ -12,10 +12,10 @@ const x = () => {
   // function () {
   //   plan.textContent = plan ;
   // };
-  const selectSchedules = document.querySelectorAll(".select-schedule")
+  const selectSchedules = document.querySelectorAll(".select-schedule");
 
   
-  let num = 0
+  let num = 0 ;
   
 
   selectSchedules.forEach(function (elem) {
@@ -33,16 +33,16 @@ const x = () => {
 
       if(num == 0){
         scheduleId.classList.remove("hide");
-        num = elem.id
+        num = elem.id ;
       }else if(num == elem.id){
         scheduleId.classList.add("hide");
-        num = 0
+        num = 0 ;
       }else{
         scheduleId.classList.remove("hide");
         document.getElementById(`schedule-${num}`).classList.add("hide");
-        num = elem.id
+        num = elem.id ;
       }
-      return
+      
       
     });
 
