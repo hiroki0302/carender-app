@@ -1,0 +1,49 @@
+<%= form_with(model: schedule, local: true) do |form| %>
+  <% if schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+      <ul>
+        <% schedule.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%# スケジュール編集フォーム %>
+  <div class="field_all">
+    <div class="field">
+        <%= form.label :予定 %>
+      <div class="text_field">
+        <%= form.text_field :plan %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :メモ %>
+      <div class="text_field">
+        <%= form.text_field :memo %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :開始時間 %>
+      <div class="text_field">
+        <%= form.datetime_select :start_time %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :終了時間 %>
+      <div class="text_field">
+        <%= form.text_field :end_time %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <div class="text_field">
+        <%= form.submit %>
+      </div>
+    </div>
+  </div>
+<% end %>

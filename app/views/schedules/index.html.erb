@@ -1,0 +1,59 @@
+<div class="title">
+  <h1>PattomiCalendar</h1>
+</div>
+
+<div class ="hoge">
+  <div class="plan-form">
+    <%= form_with(model: @schedule, url: schedules_path, local: true) do |form| %>
+      <div class="form">
+        <div>
+        <%= form.text_field :plan, placeholder:"予定を入力" ,class:"input_plan" %>
+        </div>
+        <div>
+        <%= form.text_field :memo, placeholder:"メモを入力" ,class:"input_plan"%>
+        </div>
+        <div>
+        <%= form.text_field :start_time, placeholder:"開始日時" ,class:"input_plan"%>
+        </div>
+        <div>
+        <%= form.text_field :end_time, placeholder:"終了日時" ,class:"input_plan"%>
+        </div>
+        <div>
+        <%= form.submit "save"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<%= month_calendar events: @schedules do |date,schedules| %>
+  <%= date.day %> 
+
+  <% schedules.each do |schedule| %>
+    <div class="select-schedule" id = <%= schedule.id %>>
+      <%= schedule.plan %>
+    </div>
+  <% end %>
+
+
+
+<% end %>
+
+<div class ="plan" id="day-plan">
+<div class=box>
+<h4>~スケジュール詳細~</h4>
+</div>
+  <% @schedules.each do |schedule| %>
+    <div class="hide" id = <%= "schedule-#{schedule.id}"%>>
+      <%= schedule.plan %>
+      <%= schedule.memo %>
+      <%= schedule.start_time %>
+      <%= schedule.end_time %>
+      <%= link_to '編集', edit_schedule_path(schedule.id) %>
+      <%= link_to '削除', schedule_path(schedule.id), method: :delete %>
+    </div>
+  <% end %>
+ </div>
+
+
