@@ -14,8 +14,8 @@ const x = () => {
   // };
   const selectSchedules = document.querySelectorAll(".select-schedule")
 
-  let locked = false
-  num = 1
+  
+  let num = 0
   
 
   selectSchedules.forEach(function (elem) {
@@ -23,46 +23,33 @@ const x = () => {
 
     // カーソルが乗ったら表示
     elem.addEventListener('mouseover', function(){
-      if(!locked){
+      if(num == 0){
         scheduleId.classList.remove("hide");
       }
     });
 
     // クリックしたらビューに表示
     elem.addEventListener('click', function(){
-      
-      console.log(num)
-      if(num % 2 !== 0){
-        locked = !locked
+
+      if(num == 0){
         scheduleId.classList.remove("hide");
-        num += 1
-      }else{
-        locked = !locked
+        num = elem.id
+      }else if(num == elem.id){
         scheduleId.classList.add("hide");
-        num = 1
+        num = 0
+      }else{
+        scheduleId.classList.remove("hide");
+        document.getElementById(`schedule-${num}`).classList.add("hide");
+        num = elem.id
       }
       return
       
-      // if(locked){
-      //   scheduleId.classList.add("hide");
-      // }else{
-      //   scheduleId.classList.remove("hide");
-      // }
-      // locked = !locked
-      // if(!locked){
-      //   scheduleId.classList.add("hide");
-      // }else{
-      //   scheduleId.classList.remove("hide");
-      // }
-      // locked = !locked
-
-
     });
 
 
     // カーソルが離れたら削除
     elem.addEventListener('mouseout', function(){
-      if(!locked){
+      if(num == 0){
         scheduleId.classList.add("hide");
       }
     });
