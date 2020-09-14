@@ -5,23 +5,44 @@
 $color: rgb(94, 228, 77);
 
 h1 {
-  color: $color
+  color: $color;
+  text-align: center;
+  color: rgb(94, 228, 77);
 }
+
+.title {
+  text-align: center;
+}
+
+
 
 .hoge {
-  height: 4vw;
-  width: 80vh;
   border: lightgrey 2px solid;
   background-color: rgb(155, 233, 145);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
 }
 
-.plan_form {
-  position: absolute;
+.form {
+  height: 50px;
+  width: 100%;
+  margin: 0px 20px;
+  // padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
+.input_plan {
+  margin: 0px 15px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+// .plan_form {
+//   position: absolute;
+  
+// }
 
 .day_plan {
   width: 200vh;
@@ -46,17 +67,37 @@ h1 {
   height: 30px;
 }
 
-.plan {
-  height: 150px;
-  width: 600px;
-  border: black 2px solid ;
-  margin-top: 30px;
+.box {
+  background: #8dd9ff;
+  color: #FFF;
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 1px 0px;
+  font-weight: bold;
+  border-radius: 10px 10px 0px 0px;
 }
+
+.plan {
+  height: 250px;
+  width: 750px;
+  // border: black 3px solid ;
+  margin: 30px auto 0px;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+
+
 
 .select-schedule {
   text-decoration: none;
-  background-color: rgb(255, 212, 212);
-  border: solid 1px rgb(173, 169, 169);
+  background-color: rgb(253, 221, 221);
+  border: solid 1px #f1f1f1;
   display: flex;
   justify-content: center;
+  border-radius: 5px;
 }
+

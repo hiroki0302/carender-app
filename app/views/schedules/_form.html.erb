@@ -10,28 +10,40 @@
       </ul>
     </div>
   <% end %>
+  <%# スケジュール編集フォーム %>
+  <div class="field_all">
+    <div class="field">
+        <%= form.label :予定 %>
+      <div class="text_field">
+        <%= form.text_field :plan %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :plan %>
-    <%= form.text_field :plan %>
-  </div>
+    <div class="field">
+      <%= form.label :メモ %>
+      <div class="text_field">
+        <%= form.text_field :memo %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :memo %>
-    <%= form.text_field :memo %>
-  </div>
+    <div class="field">
+      <%= form.label :開始時間 %>
+      <div class="text_field">
+        <%= form.datetime_select :start_time %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
-  </div>
+    <div class="field">
+      <%= form.label :終了時間 %>
+      <div class="text_field">
+        <%= form.text_field :end_time %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :end_time %>
-    <%= form.text_field :end_time %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+      <div class="text_field">
+        <%= form.submit %>
+      </div>
+    </div>
   </div>
 <% end %>
